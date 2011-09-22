@@ -25,6 +25,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
     <TargetFrameworkProfile />
+    <UseIISExpress>true</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -6101,6 +6102,64 @@
     <Content Include="App_Themes\administration\images\warnings-cross.png" />
     <Content Include="App_Themes\administration\images\warnings-tick.png" />
     <Content Include="App_Themes\administration\images\warnings-warning.png" />
+    <Content Include="App_Themes\nopPurple\images\bbeditor-button-bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\bgTextBox.gif" />
+    <Content Include="App_Themes\nopPurple\images\bg_body.gif" />
+    <Content Include="App_Themes\nopPurple\images\bg_container.gif" />
+    <Content Include="App_Themes\nopPurple\images\bg_maincolumn_1.gif" />
+    <Content Include="App_Themes\nopPurple\images\bg_maincolumn_2.gif" />
+    <Content Include="App_Themes\nopPurple\images\bg_maincolumn_3.gif" />
+    <Content Include="App_Themes\nopPurple\images\bg_sidebar_block.gif" />
+    <Content Include="App_Themes\nopPurple\images\bg_sidebar_title.gif" />
+    <Content Include="App_Themes\nopPurple\images\btn_download_bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\cart-footer-bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\cart-header-bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\closelabel.gif" />
+    <Content Include="App_Themes\nopPurple\images\deal_box_hl.gif" />
+    <Content Include="App_Themes\nopPurple\images\deal_box_hr.gif" />
+    <Content Include="App_Themes\nopPurple\images\EmptyStar.png" />
+    <Content Include="App_Themes\nopPurple\images\fb_s_bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\FilledStar.png" />
+    <Content Include="App_Themes\nopPurple\images\forum-footer-bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\forum-header-bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\grey_button_bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\grid-bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\grid_header_back.png" />
+    <Content Include="App_Themes\nopPurple\images\home-cat-bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\home-cat-title.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-account.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-admin.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-arrow-r.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-cart.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-delete.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-edit.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-forum-post-add.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-forum-post-high.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-forum-post.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-forum-watch.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-forum.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-inbox.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-login.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-logout.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-moveTopic.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-pm.png" />
+    <Content Include="App_Themes\nopPurple\images\ico-register.gif" />
+    <Content Include="App_Themes\nopPurple\images\ico-wishlist.gif" />
+    <Content Include="App_Themes\nopPurple\images\loading.gif" />
+    <Content Include="App_Themes\nopPurple\images\logo.gif" />
+    <Content Include="App_Themes\nopPurple\images\nextlabel.gif" />
+    <Content Include="App_Themes\nopPurple\images\orange_button_bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\pb_s_bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\pm-footer-bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\pm-header-bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\prevlabel.gif" />
+    <Content Include="App_Themes\nopPurple\images\prod_grid_box_bg.gif" />
+    <Content Include="App_Themes\nopPurple\images\progress-step-active.gif" />
+    <Content Include="App_Themes\nopPurple\images\progress-step-inactive.gif" />
+    <Content Include="App_Themes\nopPurple\images\SavedStar.png" />
+    <Content Include="App_Themes\nopPurple\images\tab-line.png" />
+    <Content Include="App_Themes\nopPurple\images\tab.png" />
+    <Content Include="App_Themes\nopPurple\styles.css" />
     <Content Include="App_Themes\darkOrange\images\bgTextBox.gif" />
     <Content Include="App_Themes\darkOrange\images\bg_body.gif" />
     <Content Include="App_Themes\darkOrange\images\bg_maincolumn_2.gif" />
@@ -6187,6 +6246,7 @@
     <Content Include="CompareProducts.aspx" />
     <Content Include="ConditionsInfo.aspx" />
     <Content Include="ContactUs.aspx" />
+    <Content Include="App_Themes\nopPurple\publicStore.skin" />
     <None Include="editors\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.cfm" />
     <None Include="editors\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.php" />
     <None Include="editors\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.pl" />
@@ -7633,11 +7693,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>11139</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/NopCommerceStore</IISUrl>
+          <IISUrl>http://localhost:11139/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
