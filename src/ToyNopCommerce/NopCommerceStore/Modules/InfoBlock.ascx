@@ -12,6 +12,8 @@
                 <%=GetLocaleResourceString("ContactUs.ContactUs")%></a> </li>
             <li><a href="<%=Page.ResolveUrl("~/aboutus.aspx")%>">
                 <%=GetLocaleResourceString("Content.AboutUs")%></a></li>
+            <li><a href="<%=Page.ResolveUrl("~/paymentmethods.aspx")%>">
+                <%=GetLocaleResourceString("Content.PaymentMethods")%></a></li>
             <% if (this.BlogService.BlogEnabled)
                { %>
             <li><a href="<%= SEOHelper.GetBlogUrl()%>">

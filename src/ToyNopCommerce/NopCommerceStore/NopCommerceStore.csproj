@@ -3992,6 +3992,13 @@
     <Compile Include="Alipay_Return.aspx.designer.cs">
       <DependentUpon>Alipay_Return.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PaymentMethods.aspx.cs">
+      <DependentUpon>PaymentMethods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentMethods.aspx.designer.cs">
+      <DependentUpon>PaymentMethods.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WishlistEmailAFriend.aspx.cs">
       <DependentUpon>WishlistEmailAFriend.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -6253,6 +6260,7 @@
     <None Include="editors\fckeditor\fckutils.cfm" />
     <None Include="Install\Scripts\1.80\nopCommerce_upgrade.sql" />
     <None Include="Install\Scripts\1.90\nopCommerce_upgrade.sql" />
+    <Content Include="PaymentMethods.aspx" />
     <Content Include="WishlistEmailAFriend.aspx" />
     <Content Include="editors\fckeditor\editor\css\behaviors\disablehandles.htc" />
     <Content Include="editors\fckeditor\editor\css\behaviors\showtableborders.htc" />
