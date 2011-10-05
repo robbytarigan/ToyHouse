@@ -1,47 +1,38 @@
-//------------------------------------------------------------------------------
-// The contents of this file are subject to the nopCommerce Public License Version 1.0 ("License"); you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at  http://www.nopCommerce.com/License.aspx. 
-// 
-// Software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. 
-// See the License for the specific language governing rights and limitations under the License.
-// 
-// The Original Code is nopCommerce.
-// The Initial Developer of the Original Code is NopSolutions.
-// All Rights Reserved.
-// 
-// Contributor(s): _______. 
-//------------------------------------------------------------------------------
+// Not original
+// Order Service
+// 2011-09-27 Not validating customer email when placing order
 
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using NopSolutions.NopCommerce.BusinessLogic.Audit;
-using NopSolutions.NopCommerce.BusinessLogic.Caching;
-using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
-using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
-using NopSolutions.NopCommerce.BusinessLogic.Data;
-using NopSolutions.NopCommerce.BusinessLogic.Directory;
-using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
-using NopSolutions.NopCommerce.BusinessLogic.Localization;
-using NopSolutions.NopCommerce.BusinessLogic.Messages;
-using NopSolutions.NopCommerce.BusinessLogic.Messages.SMS;
-using NopSolutions.NopCommerce.BusinessLogic.Payment;
-using NopSolutions.NopCommerce.BusinessLogic.Products;
-using NopSolutions.NopCommerce.BusinessLogic.Products.Attributes;
-using NopSolutions.NopCommerce.BusinessLogic.Profile;
-using NopSolutions.NopCommerce.BusinessLogic.Promo.Discounts;
-using NopSolutions.NopCommerce.BusinessLogic.QuickBooks;
-using NopSolutions.NopCommerce.BusinessLogic.Security;
-using NopSolutions.NopCommerce.BusinessLogic.Shipping;
-using NopSolutions.NopCommerce.BusinessLogic.Tax;
-using NopSolutions.NopCommerce.Common;
-using NopSolutions.NopCommerce.Common.Utils;
-using NopSolutions.NopCommerce.Common.Utils.Html;
+namespace NopSolutions.NopCommerce.BusinessLogic.Orders {
+    #region Using
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Linq;
+    using System.Text;
+    using NopSolutions.NopCommerce.BusinessLogic.Audit;
+    using NopSolutions.NopCommerce.BusinessLogic.Caching;
+    using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
+    using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
+    using NopSolutions.NopCommerce.BusinessLogic.Data;
+    using NopSolutions.NopCommerce.BusinessLogic.Directory;
+    using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
+    using NopSolutions.NopCommerce.BusinessLogic.Localization;
+    using NopSolutions.NopCommerce.BusinessLogic.Messages;
+    using NopSolutions.NopCommerce.BusinessLogic.Messages.SMS;
+    using NopSolutions.NopCommerce.BusinessLogic.Payment;
+    using NopSolutions.NopCommerce.BusinessLogic.Products;
+    using NopSolutions.NopCommerce.BusinessLogic.Products.Attributes;
+    using NopSolutions.NopCommerce.BusinessLogic.Profile;
+    using NopSolutions.NopCommerce.BusinessLogic.Promo.Discounts;
+    using NopSolutions.NopCommerce.BusinessLogic.QuickBooks;
+    using NopSolutions.NopCommerce.BusinessLogic.Security;
+    using NopSolutions.NopCommerce.BusinessLogic.Shipping;
+    using NopSolutions.NopCommerce.BusinessLogic.Tax;
+    using NopSolutions.NopCommerce.Common;
+    using NopSolutions.NopCommerce.Common.Utils;
+    using NopSolutions.NopCommerce.Common.Utils.Html;
 
-namespace NopSolutions.NopCommerce.BusinessLogic.Orders
-{
+    #endregion Using
     /// <summary>
     /// Order service
     /// </summary>
@@ -2095,8 +2086,8 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
                 if (customer.IsGuest && !customerService.AnonymousCheckoutAllowed)
                     throw new NopException("Anonymous checkout is not allowed");
 
-                if (!CommonHelper.IsValidEmail(customer.Email))
-                {
+                // This is a check to customer email address which is important to be valid.
+                if (!CommonHelper.IsValidEmail(customer.Email)) {
                     throw new NopException("Email is not valid");
                 }
 
@@ -2116,10 +2107,11 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
                     if (paymentInfo.BillingAddress == null)
                         throw new NopException("Billing address not provided");
 
-                    if (!CommonHelper.IsValidEmail(paymentInfo.BillingAddress.Email))
-                    {
-                        throw new NopException("Email is not valid");
-                    }
+                    // Billing address email is never asked in the first place, so system must not check its validity
+                    //if (!CommonHelper.IsValidEmail(paymentInfo.BillingAddress.Email))
+                    //{
+                    //    throw new NopException("Email is not valid");
+                    //}
                 }
 
                 if (paymentInfo.IsRecurringPayment)
@@ -2277,10 +2269,11 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
                         if (paymentInfo.ShippingAddress == null)
                             throw new NopException("Shipping address is not provided");
 
-                        if (!CommonHelper.IsValidEmail(paymentInfo.ShippingAddress.Email))
-                        {
-                            throw new NopException("Email is not valid");
-                        }
+                        // Billing address email is never asked in the first place, so system must not check its validity
+                        //if (!CommonHelper.IsValidEmail(paymentInfo.ShippingAddress.Email))
+                        //{
+                        //    throw new NopException("Email is not valid");
+                        //}
                     }
                 }
                 else

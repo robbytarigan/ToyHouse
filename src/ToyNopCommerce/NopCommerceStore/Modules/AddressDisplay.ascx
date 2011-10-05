@@ -32,17 +32,21 @@
                             <td>
                                 <asp:Literal ID="lFirstName" runat="server"></asp:Literal>
                                 <asp:Literal ID="lLastName" runat="server"></asp:Literal><br />
-                                <div>
+                                <asp:Panel runat="server" ID="emailPanel">                                
                                     <%=GetLocaleResourceString("Address.Email")%>:
-                                    <asp:Literal ID="lEmail" runat="server"></asp:Literal></div>
-                                <div>
+                                    <asp:Literal ID="lEmail" runat="server"></asp:Literal>
+                                </asp:Panel>
+                                <asp:Panel runat="server" ID="phonePanel">                                
                                     <%=GetLocaleResourceString("Address.Phone")%>:
-                                    <asp:Literal ID="lPhoneNumber" runat="server"></asp:Literal></div>
-                                <div>
+                                    <asp:Literal ID="lPhoneNumber" runat="server"></asp:Literal>
+                                </asp:Panel>
+                                <asp:Panel ID="faxPanel" runat="server">
                                     <%=GetLocaleResourceString("Address.Fax")%>:
-                                    <asp:Literal ID="lFaxNumber" runat="server"></asp:Literal></div>
-                                <asp:Panel ID="pnlCompany" runat="server">
-                                    <asp:Literal ID="lCompany" runat="server"></asp:Literal></asp:Panel>
+                                    <asp:Literal ID="lFaxNumber" runat="server"></asp:Literal>
+                                </asp:Panel>
+                                <asp:Panel ID="companyPanel" runat="server">
+                                    <asp:Literal ID="lCompany" runat="server"></asp:Literal>
+                                </asp:Panel>
                                 <div>
                                     <asp:Literal ID="lAddress1" runat="server"></asp:Literal></div>
                                 <asp:Panel ID="pnlAddress2" runat="server">

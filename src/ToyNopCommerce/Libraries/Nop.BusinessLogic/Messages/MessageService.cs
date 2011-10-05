@@ -1,48 +1,37 @@
-//------------------------------------------------------------------------------
-// The contents of this file are subject to the nopCommerce Public License Version 1.0 ("License"); you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at  http://www.nopCommerce.com/License.aspx. 
-// 
-// Software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. 
-// See the License for the specific language governing rights and limitations under the License.
-// 
-// The Original Code is nopCommerce.
-// The Initial Developer of the Original Code is NopSolutions.
-// All Rights Reserved.
-// 
-// Contributor(s): _______. 
-//------------------------------------------------------------------------------
-
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Globalization;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Text;
-using System.Web;
-using NopSolutions.NopCommerce.BusinessLogic.Caching;
-using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
-using NopSolutions.NopCommerce.BusinessLogic.Content.Blog;
-using NopSolutions.NopCommerce.BusinessLogic.Content.Forums;
-using NopSolutions.NopCommerce.BusinessLogic.Content.NewsManagement;
-using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
-using NopSolutions.NopCommerce.BusinessLogic.Data;
-using NopSolutions.NopCommerce.BusinessLogic.Directory;
-using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
-using NopSolutions.NopCommerce.BusinessLogic.Localization;
-using NopSolutions.NopCommerce.BusinessLogic.Media;
-using NopSolutions.NopCommerce.BusinessLogic.Orders;
-using NopSolutions.NopCommerce.BusinessLogic.Products;
-using NopSolutions.NopCommerce.BusinessLogic.Profile;
-using NopSolutions.NopCommerce.BusinessLogic.SEO;
-using NopSolutions.NopCommerce.BusinessLogic.Shipping;
-using NopSolutions.NopCommerce.BusinessLogic.Tax;
-using NopSolutions.NopCommerce.Common;
-using NopSolutions.NopCommerce.Common.Utils;
-
-namespace NopSolutions.NopCommerce.BusinessLogic.Messages
-{
+// Message service
+// Non original
+// 2011-10-04 Send message notification to customer email when billing email is empty.
+namespace NopSolutions.NopCommerce.BusinessLogic.Messages {
+    #region Usings
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Globalization;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Mail;
+    using System.Text;
+    using System.Web;
+    using NopSolutions.NopCommerce.BusinessLogic.Caching;
+    using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
+    using NopSolutions.NopCommerce.BusinessLogic.Content.Blog;
+    using NopSolutions.NopCommerce.BusinessLogic.Content.Forums;
+    using NopSolutions.NopCommerce.BusinessLogic.Content.NewsManagement;
+    using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
+    using NopSolutions.NopCommerce.BusinessLogic.Data;
+    using NopSolutions.NopCommerce.BusinessLogic.Directory;
+    using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
+    using NopSolutions.NopCommerce.BusinessLogic.Localization;
+    using NopSolutions.NopCommerce.BusinessLogic.Media;
+    using NopSolutions.NopCommerce.BusinessLogic.Orders;
+    using NopSolutions.NopCommerce.BusinessLogic.Products;
+    using NopSolutions.NopCommerce.BusinessLogic.Profile;
+    using NopSolutions.NopCommerce.BusinessLogic.SEO;
+    using NopSolutions.NopCommerce.BusinessLogic.Shipping;
+    using NopSolutions.NopCommerce.BusinessLogic.Tax;
+    using NopSolutions.NopCommerce.Common;
+    using NopSolutions.NopCommerce.Common.Utils;
+    #endregion Usings
     /// <summary>
     /// Message service
     /// </summary>
@@ -1591,7 +1580,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Messages
             string body = ReplaceMessageTemplateTokens(order, localizedMessageTemplate.Body, languageId);
             string bcc = localizedMessageTemplate.BccEmailAddresses;
             var from = new MailAddress(emailAccount.Email, emailAccount.DisplayName);
-            var to = new MailAddress(order.BillingEmail, order.BillingFullName);
+            MailAddress to = String.IsNullOrEmpty(order.BillingEmail) ? new MailAddress(order.Customer.Email, order.Customer.FullName) : new MailAddress(order.BillingEmail, order.BillingFullName);
             var queuedEmail = InsertQueuedEmail(5, from, to, string.Empty, bcc, subject, body,
                 DateTime.UtcNow, 0, null, emailAccount.EmailAccountId);
             return queuedEmail.QueuedEmailId;

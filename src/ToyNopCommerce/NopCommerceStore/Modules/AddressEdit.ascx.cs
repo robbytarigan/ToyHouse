@@ -1,38 +1,28 @@
-//------------------------------------------------------------------------------
-// The contents of this file are subject to the nopCommerce Public License Version 1.0 ("License"); you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at  http://www.nopCommerce.com/License.aspx. 
-// 
-// Software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. 
-// See the License for the specific language governing rights and limitations under the License.
-// 
-// The Original Code is nopCommerce.
-// The Initial Developer of the Original Code is NopSolutions.
-// All Rights Reserved.
-// 
-// Contributor(s): _______. 
-//------------------------------------------------------------------------------
+// Non original.
+// Address Edit when user want to put shopping address.
+// 2011-09-27 Remove Phone Number, Email, Fax Number and Company
+namespace NopSolutions.NopCommerce.Web.Modules {
+    #region Using
+    using System;
+    using System.Collections;
+    using System.ComponentModel;
+    using System.Configuration;
+    using System.Data;
+    using System.Text;
+    using System.Web;
+    using System.Web.Security;
+    using System.Web.UI;
+    using System.Web.UI.HtmlControls;
+    using System.Web.UI.WebControls;
+    using System.Web.UI.WebControls.WebParts;
+    using NopSolutions.NopCommerce.BusinessLogic;
+    using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
+    using NopSolutions.NopCommerce.BusinessLogic.Directory;
+    using NopSolutions.NopCommerce.Common.Utils;
+    using NopSolutions.NopCommerce.Common;
+    using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
 
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Text;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using NopSolutions.NopCommerce.BusinessLogic;
-using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
-using NopSolutions.NopCommerce.BusinessLogic.Directory;
-using NopSolutions.NopCommerce.Common.Utils;
-using NopSolutions.NopCommerce.Common;
-using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
-
-namespace NopSolutions.NopCommerce.Web.Modules
-{
+    #endregion Using
     public partial class AddressEdit : BaseNopFrontendUserControl
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -44,10 +34,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     lblShippingAddressId.Text = string.Empty;
                     txtFirstName.Text = string.Empty;
                     txtLastName.Text = string.Empty;
-                    txtPhoneNumber.Text = string.Empty;
-                    txtEmail.Text = string.Empty;
-                    txtFaxNumber.Text = string.Empty;
-                    txtCompany.Text = string.Empty;
+                    //txtPhoneNumber.Text = string.Empty;
+                    //txtEmail.Text = string.Empty;
+                    //txtFaxNumber.Text = string.Empty;
+                    //txtCompany.Text = string.Empty;
                     txtAddress1.Text = string.Empty;
                     txtAddress2.Text = string.Empty;
 
@@ -118,10 +108,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     address.AddressId = int.Parse(lblShippingAddressId.Text);
                 address.FirstName = txtFirstName.Text.Trim();
                 address.LastName = txtLastName.Text.Trim();
-                address.PhoneNumber = txtPhoneNumber.Text.Trim();
-                address.Email = txtEmail.Text.Trim();
-                address.FaxNumber = txtFaxNumber.Text.Trim();
-                address.Company = txtCompany.Text.Trim();
+                address.PhoneNumber = String.Empty; //txtPhoneNumber.Text.Trim();
+                address.Email = String.Empty; //txtEmail.Text.Trim();
+                address.FaxNumber = String.Empty; //txtFaxNumber.Text.Trim();
+                address.Company = String.Empty; //txtCompany.Text.Trim();
                 address.Address1 = txtAddress1.Text.Trim();
                 address.Address2 = txtAddress2.Text.Trim();
                 address.City = txtCity.Text.Trim();
@@ -147,10 +137,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     this.lblShippingAddressId.Text = address.AddressId.ToString();
                     this.txtFirstName.Text = address.FirstName;
                     this.txtLastName.Text = address.LastName;
-                    this.txtPhoneNumber.Text = address.PhoneNumber;
-                    this.txtEmail.Text = address.Email;
-                    this.txtFaxNumber.Text = address.FaxNumber;
-                    this.txtCompany.Text = address.Company;
+                    //this.txtPhoneNumber.Text = address.PhoneNumber;
+                    //this.txtEmail.Text = address.Email;
+                    //this.txtFaxNumber.Text = address.FaxNumber;
+                    //this.txtCompany.Text = address.Company;
                     this.txtAddress1.Text = address.Address1;
                     this.txtAddress2.Text = address.Address2;
                     this.txtCity.Text = address.City;
@@ -208,10 +198,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
             {
                 txtFirstName.ValidationGroup = value;
                 txtLastName.ValidationGroup = value;
-                txtPhoneNumber.ValidationGroup = value;
-                txtEmail.ValidationGroup = value;
-                txtFaxNumber.ValidationGroup = value;
-                txtCompany.ValidationGroup = value;
+                //txtPhoneNumber.ValidationGroup = value;
+                //txtEmail.ValidationGroup = value;
+                //txtFaxNumber.ValidationGroup = value;
+                //txtCompany.ValidationGroup = value;
                 txtAddress1.ValidationGroup = value;
                 txtAddress2.ValidationGroup = value;
                 txtCity.ValidationGroup = value;

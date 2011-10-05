@@ -1,35 +1,13 @@
-//------------------------------------------------------------------------------
-// The contents of this file are subject to the nopCommerce Public License Version 1.0 ("License"); you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at  http://www.nopCommerce.com/License.aspx. 
-// 
-// Software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. 
-// See the License for the specific language governing rights and limitations under the License.
-// 
-// The Original Code is nopCommerce.
-// The Initial Developer of the Original Code is NopSolutions.
-// All Rights Reserved.
-// 
-// Contributor(s): _______. 
-//------------------------------------------------------------------------------
-
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Text;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
-using NopSolutions.NopCommerce.BusinessLogic.Directory;
-using NopSolutions.NopCommerce.Common.Utils;
-
-namespace NopSolutions.NopCommerce.Web.Modules
-{
+// Not original
+// Dispaly Address
+// Do not display Phone Number, Email, Fax Number or Company whenever they are empty
+namespace NopSolutions.NopCommerce.Web.Modules {
+    #region Using
+    using System;
+    using System.ComponentModel;
+    using System.Web.UI.WebControls;
+    using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
+    #endregion Using
     public partial class AddressDisplay : BaseNopFrontendUserControl
     {
         public Address Address
@@ -44,13 +22,30 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     this.lFullName.Text = Server.HtmlEncode(string.Format("{0} {1}", address.FirstName, address.LastName));
                     this.lFirstName.Text = Server.HtmlEncode(address.FirstName);
                     this.lLastName.Text = Server.HtmlEncode(address.LastName);
-                    this.lPhoneNumber.Text = Server.HtmlEncode(address.PhoneNumber);
-                    this.lEmail.Text = Server.HtmlEncode(address.Email);
-                    this.lFaxNumber.Text = Server.HtmlEncode(address.FaxNumber);
+
+                    if (!String.IsNullOrEmpty(address.PhoneNumber)) {
+                        this.lPhoneNumber.Text = Server.HtmlEncode(address.PhoneNumber);
+                    } else {
+                        phonePanel.Visible = false;
+                    }
+                    
+                    if (!String.IsNullOrEmpty(address.Email)) {
+                        this.lEmail.Text = Server.HtmlEncode(address.Email);
+                    } else {
+                        emailPanel.Visible = false;
+                    }
+
+                    if (!String.IsNullOrEmpty(address.FaxNumber)) {
+                        this.lFaxNumber.Text = Server.HtmlEncode(address.FaxNumber);
+                    } else {
+                        faxPanel.Visible = false;
+                    }
+
                     if (!String.IsNullOrEmpty(address.Company))
                         this.lCompany.Text = Server.HtmlEncode(address.Company);
                     else
-                        this.pnlCompany.Visible = false;
+                        this.companyPanel.Visible = false;
+
                     this.lAddress1.Text = Server.HtmlEncode(address.Address1);
                     if (!String.IsNullOrEmpty(address.Address2))
                         this.lAddress2.Text = Server.HtmlEncode(address.Address2);

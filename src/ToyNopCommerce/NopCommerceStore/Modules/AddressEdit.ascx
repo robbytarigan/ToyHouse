@@ -22,7 +22,7 @@
             </nopCommerce:SimpleTextBox>
         </td>
     </tr>
-    <tr>
+    <%--<tr>
         <td>
             <%=GetLocaleResourceString("Address.PhoneNumber")%>:
         </td>
@@ -54,7 +54,7 @@
         <td>
             <asp:TextBox ID="txtCompany" runat="server"></asp:TextBox>
         </td>
-    </tr>
+    </tr>--%>
     <tr>
         <td>
             <%=GetLocaleResourceString("Address.Address1")%>:
