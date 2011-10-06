@@ -48,6 +48,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+    <PublishDatabases>false</PublishDatabases>
+    <PackageAsSingleFile>true</PackageAsSingleFile>
+    <DeployIisAppPath>noisylittleboss.com</DeployIisAppPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit">
@@ -6153,7 +6158,7 @@
     <Content Include="App_Themes\nopPurple\images\ico-register.gif" />
     <Content Include="App_Themes\nopPurple\images\ico-wishlist.gif" />
     <Content Include="App_Themes\nopPurple\images\loading.gif" />
-    <Content Include="App_Themes\nopPurple\images\logo.gif" />
+    <Content Include="App_Themes\nopPurple\images\logo.jpg" />
     <Content Include="App_Themes\nopPurple\images\nextlabel.gif" />
     <Content Include="App_Themes\nopPurple\images\orange_button_bg.gif" />
     <Content Include="App_Themes\nopPurple\images\pb_s_bg.gif" />
@@ -6846,6 +6851,12 @@
     <Content Include="TwoCheckoutReturn.aspx" />
     <Content Include="Wishlist.aspx" />
     <Content Include="WorldpayReturn.aspx" />
+    <Content Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </Content>
+    <Content Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
@@ -7289,7 +7300,6 @@
     <Content Include="Boards\Forum.aspx" />
     <Content Include="Boards\ForumGroup.aspx" />
     <Content Include="Boards\Default.aspx" />
-    <Content Include="ConnectionStrings.config" />
     <Content Include="App_Themes\administration\Admin.skin" />
     <Content Include="CheckoutOnepage.aspx" />
     <Content Include="BeanstreamHostedPaymentReturn.aspx" />
@@ -7665,7 +7675,6 @@
     <Content Include="MasterPages\OneColumn.master" />
     <Content Include="MasterPages\Root.Master" />
     <Content Include="KeepAlive\Ping.ashx" />
-    <Content Include="images\thumbs\placeholder.txt" />
     <Content Include="Modules\TopicPage.ascx" />
     <Content Include="Modules\ForumBreadcrumb.ascx" />
     <Content Include="Modules\ForumPostEdit.ascx" />
