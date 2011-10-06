@@ -8,6 +8,9 @@
     <div class="header-logo">
         <a href="<%=CommonHelper.GetStoreLocation()%>" class="logo">&nbsp; </a>
     </div>
+    <div class="header-motto">
+        <h1>Gorgeous used clothes for your little boss <br />without hurting environment</h1>
+    </div>
     <div class="header-links-wrapper">
         <div class="header-links">
             <ul>
@@ -71,5 +74,5 @@
         <div class="header-languageselector">
             <nopCommerce:LanguageSelector runat="server" ID="ctrlLanguageSelector"></nopCommerce:LanguageSelector>
         </div>
-    </div>
+    </div>    
 </div>
