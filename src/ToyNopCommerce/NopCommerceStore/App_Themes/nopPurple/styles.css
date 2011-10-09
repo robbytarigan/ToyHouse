@@ -437,6 +437,21 @@ a.logo
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+.color-red { color: Red; }
+
+.color-orange { color: Orange;}
+
+.color-yellow { color: Yellow;}
+
+.color-green { color:Green;}
+
+.color-blue { color: Blue;}
+
+.color-semipurple { color: #7549B1;}
+
+.color-purple { color: Purple;}
+
+
 .page-title 
 {
     border-bottom: 1px solid;

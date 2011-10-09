@@ -6856,6 +6856,7 @@
     </Content>
     <Content Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

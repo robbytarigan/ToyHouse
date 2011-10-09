@@ -9,7 +9,16 @@
         <a href="<%=CommonHelper.GetStoreLocation()%>" class="logo">&nbsp; </a>
     </div>
     <div class="header-motto">
-        <h1>Gorgeous used clothes for your little boss <br />without hurting environment</h1>
+        <h1>
+            <span class="color-red">Gorgeous</span>
+            <span class="color-orange">used</span>
+            <span class="color-yellow">children</span>
+            <span class="color-green">clothes</span>
+            <br />
+            <span class="color-blue">without</span>
+            <span class="color-semipurple">hurting</span>
+            <span class="color-purple">environment</span>
+        </h1>
     </div>
     <div class="header-links-wrapper">
         <div class="header-links">
